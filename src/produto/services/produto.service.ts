@@ -5,7 +5,7 @@ import { Repository } from "typeorm";
 
 
 @Injectable()
-export class PostagemService {
+export class ProdutoService {
    constructor(
       @InjectRepository(Produto)
       private produtoRepository: Repository<Produto>
