@@ -5,7 +5,7 @@ import { Categoria } from "../entities/categoria.entity";
 
 
 @Injectable()
-export class TemaService {
+export class CategoriaService {
     constructor(
         @InjectRepository(Categoria)
         private categoriaRepository: Repository<Categoria>
