@@ -12,7 +12,12 @@ export class ProdutoService {
    ) { }
 
    async findAll(): Promise<Produto[]> {
-      return await this.produtoRepository.find();
+      return await this.produtoRepository.find({
+         relations:{
+            tema:true
+         }
+      });
+      
    }
 
    async findById(id: number): Promise<Produto> {
@@ -20,6 +25,9 @@ export class ProdutoService {
       const produto = await this.produtoRepository.findOne({
          where: {
             id
+         },
+         relations:{
+            tema: true
          }
       })
 
@@ -33,7 +41,10 @@ export class ProdutoService {
       return await this.produtoRepository.find({
          where: {
             titulo: ILike(`%${titulo}%`)
-         }
+         },
+          relations:{
+               tema : true
+            }
       })
    }
 
